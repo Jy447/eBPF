@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Apr  4 07:56:08 2022
+# Make data base, printed on Mon Apr  4 08:01:37 2022
 
 # Variables
 
@@ -49,7 +49,7 @@ _ = /home/xiaoy/.vscode-server/bin/e18005f0f1b33c29e81d732535d8c0e47cafb0b5/node
 # makefile (from 'Makefile', line 107)
 CFLAGS = -Wall -Werror -O -fno-omit-frame-pointer -ggdb $(XCFLAGS) -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. $(shell $(CC) -fno-stack-protector -E -x c /dev/null >/dev/null 2>&1 && echo -fno-stack-protector) -fno-pie -no-pie
 # makefile (from 'Makefile', line 357)
-UPSTREAM := origin
+UPSTREAM := 
 # makefile (from 'Makefile', line 259)
 GDBPORT = $(shell expr `id -u` % 5000 + 25000)
 # makefile (from 'user/rm.d', line 1)
@@ -79,7 +79,7 @@ CPUS := 3
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-13220999-1ca8-4e41-828e-7796a36bc59e.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-1ff53b86-9635-4ff8-903d-350a1b316c2d.sock
 # makefile (from 'Makefile', line 113)
 LDFLAGS = -z max-page-size=4096
 # makefile (from 'Makefile', line 132)
@@ -97,7 +97,7 @@ PWD = /home/xiaoy/try/my_os
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/12_interop
+WSL_INTEROP = /run/WSL/2886_interop
 # makefile (from 'conf/lab.mk', line 1)
 LAB = lock
 # environment
@@ -113,7 +113,7 @@ WEBSUB := https://6828.scripts.mit.edu/2020/handin.py
 # environment
 LOGNAME = xiaoy
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -121,13 +121,13 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # environment
 MAKELEVEL := 0
 # environment
-PLATFORMIO_PATH = /home/xiaoy/.platformio/python3/bin:/home/xiaoy/.vscode-server/bin/e18005f0f1b33c29e81d732535d8c0e47cafb0b5/bin/remote-cli:/home/xiaoy/.local/bin:$/usr/local/riscv64-unknown-elf-gcc/bin:$/usr/local/riscv64-linux-musl-cross/bin:/usr/local/riscv64-linux-musl-cross/bin:/usr/local/riscv64-unknown-elf-gcc/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/Program Files/Java/jdk-15.0.1/jre/bin:/mnt/c/Users/xiaoy/Documents/mysql-8.0.25-winx64/bin:/mnt/c/WINDOWS:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS/System32:/mnt/c/Users/xiaoy/Documents/apache-ant-1.10.12-bin/apache-ant-1.10.12/bin:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Common Files/Autodesk Shared/:/mnt/c/Program Files/ISC BIND 9/bin:/mnt/c/Python27:/mnt/c/Program Files/nodejs/:/mnt/c/Users/xiaoy/Documents/node.exe:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Calibre2/:/mnt/c/Program Files/TortoiseSVN/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/xiaoy/Documents/MATLAB/R2021b/bin:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/:/mnt/c/Users/xiaoy/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/repo/mingw64/bin:/mnt/c/Users/xiaoy/.dotnet/tools:/mnt/c/Users/xiaoy/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/xiaoy/go/bin:/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2021.1/bin:/mnt/c/Program Files/JetBrains/PyCharm 2021.1.1/bin:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/xiaoy/AppData/Roaming/npm:/mnt/c/Program Files/JetBrains/WebStorm 2021.1.3/bin:/mnt/c/Program Files/JetBrains/CLion 2021.2/bin:/mnt/c/texlive/2021/bin/win32:/mnt/c/Users/xiaoy/AppData/Local/Programs/Julia-1.7.0/bin:/mnt/c/Program Files/Mercurial:/snap/bin
+PLATFORMIO_PATH = /home/xiaoy/.platformio/penv/bin:/home/xiaoy/.platformio/penv:/home/xiaoy/.platformio/python3/bin:/home/xiaoy/.vscode-server/bin/e18005f0f1b33c29e81d732535d8c0e47cafb0b5/bin/remote-cli:/home/xiaoy/.local/bin:$/usr/local/riscv64-unknown-elf-gcc/bin:$/usr/local/riscv64-linux-musl-cross/bin:/usr/local/riscv64-linux-musl-cross/bin:/usr/local/riscv64-unknown-elf-gcc/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Google/Chrome/Application:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/Program Files/Java/jdk-15.0.1/jre/bin:/mnt/c/Users/xiaoy/Documents/mysql-8.0.25-winx64/bin:/mnt/c/WINDOWS:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS/System32:/mnt/c/Users/xiaoy/Documents/apache-ant-1.10.12-bin/apache-ant-1.10.12/bin:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Common Files/Autodesk Shared/:/mnt/c/Program Files/ISC BIND 9/bin:/mnt/c/Python27:/mnt/c/Program Files/nodejs/:/mnt/c/Users/xiaoy/Documents/node.exe:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Calibre2/:/mnt/c/Program Files/TortoiseSVN/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/xiaoy/Documents/MATLAB/R2021b/bin:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/:/mnt/c/Users/xiaoy/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/repo/mingw64/bin:/mnt/c/Users/xiaoy/.dotnet/tools:/mnt/c/Users/xiaoy/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/xiaoy/go/bin:/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2021.1/bin:/mnt/c/Program Files/JetBrains/PyCharm 2021.1.1/bin:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/xiaoy/AppData/Roaming/npm:/mnt/c/Program Files/JetBrains/WebStorm 2021.1.3/bin:/mnt/c/Program Files/JetBrains/CLion 2021.2/bin:/mnt/c/texlive/2021/bin/win32:/mnt/c/Users/xiaoy/AppData/Local/Programs/Julia-1.7.0/bin:/mnt/c/Program Files/Mercurial:/snap/bin
 # default
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-PATH = /home/xiaoy/.vscode-server/bin/e18005f0f1b33c29e81d732535d8c0e47cafb0b5/bin/remote-cli:/home/xiaoy/.local/bin:$/usr/local/riscv64-unknown-elf-gcc/bin:$/usr/local/riscv64-linux-musl-cross/bin:/usr/local/riscv64-linux-musl-cross/bin:/usr/local/riscv64-unknown-elf-gcc/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/Program Files/Java/jdk-15.0.1/jre/bin:/mnt/c/Users/xiaoy/Documents/mysql-8.0.25-winx64/bin:/mnt/c/WINDOWS:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS/System32:/mnt/c/Users/xiaoy/Documents/apache-ant-1.10.12-bin/apache-ant-1.10.12/bin:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Common Files/Autodesk Shared/:/mnt/c/Program Files/ISC BIND 9/bin:/mnt/c/Python27:/mnt/c/Program Files/nodejs/:/mnt/c/Users/xiaoy/Documents/node.exe:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Calibre2/:/mnt/c/Program Files/TortoiseSVN/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/xiaoy/Documents/MATLAB/R2021b/bin:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/:/mnt/c/Users/xiaoy/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/repo/mingw64/bin:/mnt/c/Users/xiaoy/.dotnet/tools:/mnt/c/Users/xiaoy/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/xiaoy/go/bin:/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2021.1/bin:/mnt/c/Program Files/JetBrains/PyCharm 2021.1.1/bin:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/xiaoy/AppData/Roaming/npm:/mnt/c/Program Files/JetBrains/WebStorm 2021.1.3/bin:/mnt/c/Program Files/JetBrains/CLion 2021.2/bin:/mnt/c/texlive/2021/bin/win32:/mnt/c/Users/xiaoy/AppData/Local/Programs/Julia-1.7.0/bin:/mnt/c/Program Files/Mercurial:/snap/bin
+PATH = /home/xiaoy/.vscode-server/bin/e18005f0f1b33c29e81d732535d8c0e47cafb0b5/bin/remote-cli:/home/xiaoy/.local/bin:$/usr/local/riscv64-unknown-elf-gcc/bin:$/usr/local/riscv64-linux-musl-cross/bin:/usr/local/riscv64-linux-musl-cross/bin:/usr/local/riscv64-unknown-elf-gcc/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Google/Chrome/Application:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/Program Files/Java/jdk-15.0.1/jre/bin:/mnt/c/Users/xiaoy/Documents/mysql-8.0.25-winx64/bin:/mnt/c/WINDOWS:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS/System32:/mnt/c/Users/xiaoy/Documents/apache-ant-1.10.12-bin/apache-ant-1.10.12/bin:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Common Files/Autodesk Shared/:/mnt/c/Program Files/ISC BIND 9/bin:/mnt/c/Python27:/mnt/c/Program Files/nodejs/:/mnt/c/Users/xiaoy/Documents/node.exe:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Calibre2/:/mnt/c/Program Files/TortoiseSVN/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/xiaoy/Documents/MATLAB/R2021b/bin:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/:/mnt/c/Users/xiaoy/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/repo/mingw64/bin:/mnt/c/Users/xiaoy/.dotnet/tools:/mnt/c/Users/xiaoy/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/xiaoy/go/bin:/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2021.1/bin:/mnt/c/Program Files/JetBrains/PyCharm 2021.1.1/bin:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/xiaoy/AppData/Roaming/npm:/mnt/c/Program Files/JetBrains/WebStorm 2021.1.3/bin:/mnt/c/Program Files/JetBrains/CLion 2021.2/bin:/mnt/c/texlive/2021/bin/win32:/mnt/c/Users/xiaoy/AppData/Local/Programs/Julia-1.7.0/bin:/mnt/c/Program Files/Mercurial:/snap/bin
 # environment
 SHLVL = 0
 # makefile (from 'Makefile', line 308)
@@ -206,10 +206,8 @@ TERM = xterm-256color
 VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 WSL_DISTRO_NAME = Ubuntu-20.04
-# environment
-MOTD_SHOWN = update-motd
 # variable set hash-table stats:
-# Load=98/1024=10%, Rehash=0, Collisions=21/404=5%
+# Load=97/1024=9%, Rehash=0, Collisions=21/403=5%
 
 # Pattern-specific Variable Values
 
@@ -219,9 +217,9 @@ MOTD_SHOWN = update-motd
 
 # user (device 2048, inode 432896): 138 files, no impossibilities.
 # kernel (device 2048, inode 431749): 107 files, no impossibilities.
-# . (device 2048, inode 42967): 20 files, no impossibilities.
+# . (device 2048, inode 42967): 21 files, no impossibilities.
 
-# 265 files, no impossibilities in 3 directories.
+# 266 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
@@ -266,9 +264,9 @@ kernel/exec.c:
 handin: tarball-pref myapi.key
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
- 
 #  File does not exist.
 #  File has not been updated.
+ 
 #  recipe to execute (from 'Makefile', line 328):
 	@SUF=$(LAB); \
 	curl -f -F file=@lab-$$SUF-handin.tar.gz -F key=\<myapi.key $(WEBSUB)/upload \
@@ -560,7 +558,6 @@ print-gdbport:
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 312):
 	@echo $(GDBPORT)
- 
 
 # Not a target:
 user/statistics.c:
@@ -572,6 +569,7 @@ user/statistics.c:
 user/stressfs.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 # Not a target:
@@ -785,7 +783,6 @@ kernel/fs.c:
 
 # Not a target:
 kernel/sysfile.d:
- 
 #  Implicit rule search has been done.
 #  Last modified 2022-04-03 22:18:55.770268832
 #  File has been updated.
@@ -850,6 +847,7 @@ kernel/printf.d:
 
 kernel/kernel: kernel/entry.o kernel/start.o kernel/console.o kernel/printf.o kernel/uart.o kernel/kalloc.o kernel/spinlock.o kernel/string.o kernel/main.o kernel/vm.o kernel/proc.o kernel/swtch.o kernel/trampoline.o kernel/trap.o kernel/syscall.o kernel/sysproc.o kernel/bio.o kernel/fs.o kernel/log.o kernel/sleeplock.o kernel/file.o kernel/pipe.o kernel/exec.o kernel/sysfile.o kernel/kernelvec.o kernel/plic.o kernel/virtio_disk.o kernel/stats.o kernel/sprintf.o kernel/kernel.ld user/initcode
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 116):
@@ -1015,7 +1013,6 @@ user/usys.d:
 #  Implicit rule search has been done.
 #  Last modified 2022-04-03 22:18:57.360268782
 #  File has been updated.
- 
 #  Successfully updated.
 
 # Not a target:
@@ -1127,6 +1124,7 @@ kernel/proc.o: kernel/proc.c kernel/types.h kernel/param.h kernel/memlayout.h ke
 # Not a target:
 kernel/pipe.d:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2022-04-03 22:18:55.17026885
 #  File has been updated.
 #  Successfully updated.
@@ -1406,7 +1404,6 @@ kernel/start.o: kernel/start.c kernel/types.h kernel/param.h kernel/memlayout.h 
 #  File has not been updated.
 
 # Not a target:
- 
 user/sh.d:
 #  Implicit rule search has been done.
 #  Last modified 2022-04-03 22:19:00.180268694
@@ -1432,6 +1429,7 @@ user/kalloctest.o: user/kalloctest.c kernel/param.h kernel/types.h kernel/stat.h
 #  File has not been updated.
 
 # Not a target:
+ 
 kernel/date.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -1665,13 +1663,13 @@ kernel/string.c:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 474 / storage = 5277 B / avg = 11 B
-# current buf: size = 8162 B / used = 5277 B / count = 474 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 475 / storage = 5284 B / avg = 11 B
+# current buf: size = 8162 B / used = 5284 B / count = 475 / avg = 11 B
 
-# strcache performance: lookups = 988 / hit rate = 52%
+# strcache performance: lookups = 989 / hit rate = 51%
 # hash-table stats:
  
-# Load=474/8192=6%, Rehash=0, Collisions=52/988=5%
-# Finished Make data base on Mon Apr  4 07:56:08 2022
+# Load=475/8192=6%, Rehash=0, Collisions=54/989=5%
+# Finished Make data base on Mon Apr  4 08:01:37 2022
 
  

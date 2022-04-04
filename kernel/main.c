@@ -27,11 +27,7 @@ main()
     binit();         // buffer cache
     iinit();         // inode cache
     fileinit();      // file table
-    virtio_disk_init(); // emulated hard disk
-#ifdef LAB_NET
-    pci_init();
-    sockinit();
-#endif    
+    virtio_disk_init(); // emulated hard disk  
     userinit();      // first user process
     __sync_synchronize();
     started = 1;

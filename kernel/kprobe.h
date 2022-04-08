@@ -104,4 +104,78 @@ struct kretprobe {
 	spinlock lock;
 };
 
+struct kretprobe_instance
+{
+    struct hlist_node hlist;
+    struct kretprobe *rp;
+    kprobe_opcode_t *ret_addr;
+    struct task_struct *task;//task_structure是个任务进程
+    char data[0];
+};
+
+
+struct kretprobe_blackpoint {
+	const char *name;
+	void *addr;
+};
+
+struct kprobe_blacklist_entry {
+	struct list_head list;
+	unsigned long start_addr;
+	unsigned long end_addr;
+};
+
+static inline int kprobes_built_in(void)
+{
+	return 1;
+}
+
+#ifdef CONFIG_KRETPROBES
+extern void arch_prepare_kretprobe(struct kretprobe_instance *ri,
+				   struct pt_regs *regs);
+extern int arch_trampoline_kprobe(struct kprobe *p);
+#else /* CONFIG_KRETPROBES */
+static inline void arch_prepare_kretprobe(struct kretprobe *rp,
+					struct pt_regs *regs)
+{
+}
+static inline int arch_trampoline_kprobe(struct kprobe *p)
+{
+	return 0;
+}
+#endif /* CONFIG_KRETPROBES */
+extern struct kretprobe_blackpoint kretprobe_blacklist[];
+static inline void kretprobe_assert(struct kretprobe_instance *ri,
+	unsigned long orig_ret_address, unsigned long trampoline_address)
+{
+	if (!orig_ret_address || (orig_ret_address == trampoline_address)) {
+		printf("kretprobe BUG!: Processing kretprobe %p @ %p\n",
+				ri->rp, ri->rp->kp.addr);
+		BUG();
+	}
+}
+#ifdef CONFIG_KPROBES_SANITY_TEST
+extern int init_test_probes(void);
+#else
+static inline int init_test_probes(void)
+{
+	return 0;
+}
+#endif /* CONFIG_KPROBES_SANITY_TEST */
+
+
+extern int arch_prepare_kprobe(struct kprobe *p);
+extern void arch_arm_kprobe(struct kprobe *p);
+extern void arch_disarm_kprobe(struct kprobe *p);
+extern int arch_init_kprobes(void);
+extern void show_registers(struct pt_regs *regs);
+extern void kprobes_inc_nmissed_count(struct kprobe *p);
+extern bool arch_within_kprobe_blacklist(unsigned long addr);
+extern int arch_populate_kprobe_blacklist(void);
+extern bool arch_kprobe_on_func_entry(unsigned long offset);
+extern bool kprobe_on_func_entry(kprobe_opcode_t *addr, const char *sym, unsigned long offset);
+extern bool within_kprobe_blacklist(unsigned long addr);
+extern int kprobe_add_ksym_blacklist(unsigned long entry);
+extern int kprobe_add_area_blacklist(unsigned long start, unsigned long end);
+
 

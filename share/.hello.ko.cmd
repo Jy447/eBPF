@@ -1,0 +1,1 @@
+cmd_/home/xiaoy/share/hello.ko := aarch64-linux-gnu-ld -r  -EL  -maarch64elf  --build-id=sha1  -T scripts/module.lds -o /home/xiaoy/share/hello.ko /home/xiaoy/share/hello.o /home/xiaoy/share/hello.mod.o;  true

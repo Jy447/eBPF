@@ -6,7 +6,7 @@ struct pt_regs;//这是什么？
 struct kretprobe;
 struct kretprobe_instance;
 
-struct hlist_node;
+// struct hlist_node;
 struct list_head;
 
 typedef int kprobe_opcode_t;

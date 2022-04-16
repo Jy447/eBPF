@@ -178,4 +178,11 @@ extern bool within_kprobe_blacklist(unsigned long addr);
 extern int kprobe_add_ksym_blacklist(unsigned long entry);
 extern int kprobe_add_area_blacklist(unsigned long start, unsigned long end);
 
+int register_kprobe(struct kprobe *kp)      //向内核注册kprobe探测点
+void unregister_kprobe(struct kprobe *kp)   //卸载kprobe探测点
+int register_kprobes(struct kprobe **kps, int num)     //注册探测函数向量，包含多个探测点
+void unregister_kprobes(struct kprobe **kps, int num)  //卸载探测函数向量，包含多个探测点
+int disable_kprobe(struct kprobe *kp)       //临时暂停指定探测点的探测
+int enable_kprobe(struct kprobe *kp)        //恢复指定探测点的探测
+
 

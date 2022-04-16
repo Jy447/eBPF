@@ -434,3 +434,24 @@ static void do_free_cleaned_kprobes(void)
 		free_aggr_kprobe(&op->kp);
 	}
 }
+/* kprobe post_handler: called after the probed instruction is executed */
+static void handler_post(struct kprobe *p, struct pt_regs *regs,
+				unsigned long flags)
+{
+#ifdef CONFIG_X86
+	printk(KERN_INFO "post_handler: p->addr = 0x%p, flags = 0x%lx\n",
+		p->addr, regs->flags);
+#endif
+#ifdef CONFIG_PPC
+	printk(KERN_INFO "post_handler: p->addr = 0x%p, msr = 0x%lx\n",
+		p->addr, regs->msr);
+#endif
+#ifdef CONFIG_MIPS
+	printk(KERN_INFO "post_handler: p->addr = 0x%p, status = 0x%lx\n",
+		p->addr, regs->cp0_status);
+#endif
+#ifdef CONFIG_TILEGX
+	printk(KERN_INFO "post_handler: p->addr = 0x%p, ex1 = 0x%lx\n",
+		p->addr, regs->ex1);
+#endif
+}

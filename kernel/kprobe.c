@@ -1,3 +1,4 @@
+#include"types.h"
 #define KPROBE_HASH_BITS 6
 #define KPROBE_TABLE_SIZE (1 << KPROBE_HASH_BITS)
 static int kprobes_initialized;

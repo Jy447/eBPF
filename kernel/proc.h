@@ -1,3 +1,5 @@
+#include"types.h"
+#include"param.h"
 // Saved registers for kernel context switches.
 struct context {
   uint64 ra;
@@ -82,6 +84,16 @@ struct trapframe {
 
 enum procstate { UNUSED, SLEEPING, RUNNABLE, RUNNING, ZOMBIE };
 
+
+// //结构体里面怎么扔一个函数？
+// struct kprobe{
+
+//   uint64 kprobe_opcode_t;//放切换出去的指令保存的
+//   void (*pre_handler)(uint64 addr);//送入断点地址，然后执行指令
+//   void (*post_handler)(uint64 addr);
+//   uint64 count;//一个断点处加了不止一个probe
+
+// };
 // Per-process state
 struct proc {
   struct spinlock lock;
@@ -103,4 +115,16 @@ struct proc {
   struct file *ofile[NOFILE];  // Open files
   struct inode *cwd;           // Current directory
   char name[16];               // Process name (debugging)
+
+  int kprobe_enter;//标志有没有开启kprobe
+  // struct kprobe *kprobe;
+  struct trapframe *kprobe_trapframe;
+  int kprobe_alarm;//现在已经执行了一个kprobe还没有返回
+  
+  uint64 kprobe_opcode_t;//放切换出去的指令保存的
+  void (*pre_handler)(uint64 addr);//送入断点地址，然后执行指令
+  void (*post_handler)(uint64 addr);
+  uint64 count;//一个断点处加了不止一个probe
 };
+
+

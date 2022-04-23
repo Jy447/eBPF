@@ -16,7 +16,8 @@
 #include "proc.h"
 
 volatile int panicked = 0;
-
+void 
+backtrace();
 // lock to avoid interleaving concurrent printf's.
 static struct {
   struct spinlock lock;
@@ -131,4 +132,14 @@ printfinit(void)
 {
   initlock(&pr.lock, "pr");
   pr.locking = 1;
+}
+
+void 
+backtrace(){
+    unsigned long x = r_fp();
+    while(x != PGROUNDUP(x)){
+      uint64 ra= *(uint64*)(x - 8);
+      printf("%p\n",ra);
+      x=*(uint64*)(x-16);
+    }
 }

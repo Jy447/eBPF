@@ -7,9 +7,6 @@
 #include "spinlock.h"
 #include "proc.h"
 
-
-void 
-backtrace();
 uint64
 sys_exit(void)
 {
@@ -61,8 +58,6 @@ sys_sleep(void)
   int n;
   uint ticks0;
 
-  printf("enter sysproc sleep\n");
-  backtrace();
   if(argint(0, &n) < 0)
     return -1;
   acquire(&tickslock);

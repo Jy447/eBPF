@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Apr 22 23:05:21 2022
+# Make data base, printed on Sat Apr 30 09:07:20 2022
 
 # Variables
 
@@ -32,14 +32,14 @@ VSCODE_LOG_NATIVE = false
 PLATFORMIO_IDE = 2.4.3
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
- 
 # automatic
- 
 @F = $(notdir $@)
+ 
 # makefile
 CURDIR := /home/xiaoy/operating-system-trace
 # makefile (from 'Makefile', line 11)
 K = kernel
+ 
 # makefile
 SHELL = /bin/sh
 # makefile (from 'Makefile', line 12)
@@ -47,19 +47,19 @@ U = user
 # environment
 VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"1a7316c624e1dd66d26cf581ee0fb4ca.zh-cn","_translationsConfigFile":"/home/xiaoy/.vscode-server/data/clp/1a7316c624e1dd66d26cf581ee0fb4ca.zh-cn/tcf.json","_cacheRoot":"/home/xiaoy/.vscode-server/data/clp/1a7316c624e1dd66d26cf581ee0fb4ca.zh-cn","_resolvedLanguagePackCoreLocation":"/home/xiaoy/.vscode-server/data/clp/1a7316c624e1dd66d26cf581ee0fb4ca.zh-cn/dfd34e8260c270da74b5c2d86d61aee4b6d56977","_corruptedFile":"/home/xiaoy/.vscode-server/data/clp/1a7316c624e1dd66d26cf581ee0fb4ca.zh-cn/corrupted.info","_languagePackSupport":true}
 # environment
-_ = /usr/bin/sh
- 
+_ = /home/xiaoy/.vscode-server/bin/dfd34e8260c270da74b5c2d86d61aee4b6d56977/node
 # makefile (from 'Makefile', line 122)
 CFLAGS = -Wall -Werror -O -fno-omit-frame-pointer -ggdb $(XCFLAGS) -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. $(shell $(CC) -fno-stack-protector -E -x c /dev/null >/dev/null 2>&1 && echo -fno-stack-protector) -DNET_TESTS_PORT=$(SERVERPORT) -fno-pie -no-pie
 # makefile (from 'Makefile', line 379)
 UPSTREAM := 
- 
 # makefile (from 'Makefile', line 281)
 GDBPORT = $(shell expr `id -u` % 5000 + 25000)
-# makefile (from 'conf/lab.mk', line 1)
-MAKEFILE_LIST :=  Makefile conf/lab.mk
+# makefile (from 'kernel/start.d', line 1)
+MAKEFILE_LIST :=  Makefile conf/lab.mk kernel/exec.d kernel/vmcopyin.d kernel/fs.d kernel/string.d kernel/syscall.d kernel/printf.d kernel/uart.d kernel/trap.d kernel/sprintf.d kernel/sleeplock.d kernel/sysfile.d kernel/log.d kernel/virtio_disk.d kernel/proc.d kernel/kalloc.d kernel/console.d kernel/spinlock.d kernel/pipe.d kernel/stats.d kernel/file.d kernel/main.d kernel/sysproc.d kernel/bio.d kernel/plic.d kernel/vm.d kernel/start.d
 # 'override' directive
 GNUMAKEFLAGS := 
+# environment
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # makefile (from 'Makefile', line 92)
@@ -67,9 +67,12 @@ AS = $(TOOLPREFIX)gas
 # makefile (from 'Makefile', line 63)
 OBJS = $K/entry.o $K/kalloc.o $K/string.o $K/main.o $K/vm.o $K/proc.o $K/swtch.o $K/trampoline.o $K/trap.o $K/syscall.o $K/sysproc.o $K/bio.o $K/fs.o $K/log.o $K/sleeplock.o $K/file.o $K/pipe.o $K/exec.o $K/sysfile.o $K/kernelvec.o $K/plic.o $K/virtio_disk.o $K/e1000.o $K/net.o $K/sysnet.o $K/pci.o
 # environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# environment
 VSCODE_CWD = /mnt/c/Users/xiaoy/AppData/Local/Programs/Microsoft VS Code
 # makefile (from 'Makefile', line 38)
 OBJS_KCSAN = $K/start.o $K/console.o $K/printf.o $K/uart.o $K/spinlock.o
+ 
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -81,14 +84,15 @@ CPUS := 3
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-bbd27325-371a-42c2-9248-d6625f75a23c.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-405a8260-87a6-43da-ac4f-b3c7132b227b.sock
 # makefile (from 'Makefile', line 128)
 LDFLAGS = -z max-page-size=4096
 # makefile (from 'Makefile', line 150)
 ULIB = $U/ulib.o $U/usys.o $U/printf.o $U/umalloc.o
- 
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 # automatic
 %F = $(notdir $%)
 # environment
@@ -98,8 +102,7 @@ PWD = /home/xiaoy/operating-system-trace
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/12_interop
- 
+WSL_INTEROP = /run/WSL/16577_interop
 # makefile (from 'conf/lab.mk', line 1)
 LAB = net
 # environment
@@ -107,29 +110,33 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/xiaoy
 # makefile (from 'Makefile', line 100)
+ 
 LABUPPER = $(shell echo $(LAB) | tr a-z A-Z)
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
 # makefile (from 'Makefile', line 347)
- 
 WEBSUB := https://6828.scripts.mit.edu/2020/handin.py
- 
 # environment
 LOGNAME = xiaoy
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
 MAKELEVEL := 0
+ 
 # environment
-PLATFORMIO_PATH = /home/xiaoy/.platformio/python3/bin:/home/xiaoy/.vscode-server/bin/dfd34e8260c270da74b5c2d86d61aee4b6d56977/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/Program Files/Java/jdk-15.0.1/jre/bin:/mnt/c/Users/xiaoy/Documents/mysql-8.0.25-winx64/bin:/mnt/c/WINDOWS:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS/System32:/mnt/c/Users/xiaoy/Documents/apache-ant-1.10.12-bin/apache-ant-1.10.12/bin:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Common Files/Autodesk Shared/:/mnt/c/Program Files/ISC BIND 9/bin:/mnt/c/Python27:/mnt/c/Program Files/nodejs/:/mnt/c/Users/xiaoy/Documents/node.exe:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Calibre2/:/mnt/c/Program Files/TortoiseSVN/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/xiaoy/Documents/MATLAB/R2021b/bin:/mnt/c/HashiCorp/Vagrant/bin:/mnt/c/Program Files (x86)/AOMEI/AOMEI Backupper/6.8.0:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/:/mnt/c/Users/xiaoy/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/repo/mingw64/bin:/mnt/c/Users/xiaoy/.dotnet/tools:/mnt/c/Users/xiaoy/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/xiaoy/go/bin:/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2021.1/bin:/mnt/c/Program Files/JetBrains/PyCharm 2021.1.1/bin:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/xiaoy/AppData/Roaming/npm:/mnt/c/Program Files/JetBrains/WebStorm 2021.1.3/bin:/mnt/c/Program Files/JetBrains/CLion 2021.2/bin:/mnt/c/texlive/2021/bin/win32:/mnt/c/Users/xiaoy/AppData/Local/Programs/Julia-1.7.0/bin:/mnt/c/Program Files/Mercurial:/mnt/c/Users/xiaoy/AppData/Local/GitHubDesktop/bin
+PLATFORMIO_PATH = /home/xiaoy/.platformio/python3/bin:/home/xiaoy/.vscode-server/bin/dfd34e8260c270da74b5c2d86d61aee4b6d56977/bin/remote-cli:/home/xiaoy/.local/bin:/home/xiaoy/.cargo/bin:$/usr/local/riscv64-unknown-elf-gcc/bin:$/usr/local/riscv64-linux-musl-cross/bin:/usr/local/llvm/bin:/usr/local/riscv64-linux-musl-cross/bin:/usr/local/riscv64-unknown-elf-gcc/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/Program Files/Java/jdk-15.0.1/jre/bin:/mnt/c/Users/xiaoy/Documents/mysql-8.0.25-winx64/bin:/mnt/c/WINDOWS:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS/System32:/mnt/c/Users/xiaoy/Documents/apache-ant-1.10.12-bin/apache-ant-1.10.12/bin:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Common Files/Autodesk Shared/:/mnt/c/Program Files/ISC BIND 9/bin:/mnt/c/Python27:/mnt/c/Program Files/nodejs/:/mnt/c/Users/xiaoy/Documents/node.exe:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Calibre2/:/mnt/c/Program Files/TortoiseSVN/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/xiaoy/Documents/MATLAB/R2021b/bin:/mnt/c/HashiCorp/Vagrant/bin:/mnt/c/Program Files (x86)/AOMEI/AOMEI Backupper/6.8.0:/mnt/c/LINGO64_18/:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/:/mnt/c/Users/xiaoy/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/repo/mingw64/bin:/mnt/c/Users/xiaoy/.dotnet/tools:/mnt/c/Users/xiaoy/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/xiaoy/go/bin:/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2021.1/bin:/mnt/c/Program Files/JetBrains/PyCharm 2021.1.1/bin:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/xiaoy/AppData/Roaming/npm:/mnt/c/Program Files/JetBrains/WebStorm 2021.1.3/bin:/mnt/c/Program Files/JetBrains/CLion 2021.2/bin:/mnt/c/texlive/2021/bin/win32:/mnt/c/Users/xiaoy/AppData/Local/Programs/Julia-1.7.0/bin:/mnt/c/Program Files/Mercurial:/mnt/c/Users/xiaoy/AppData/Local/GitHubDesktop/bin:/snap/bin
+ 
 # default
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-PATH = /home/xiaoy/.vscode-server/bin/dfd34e8260c270da74b5c2d86d61aee4b6d56977/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/Program Files/Java/jdk-15.0.1/jre/bin:/mnt/c/Users/xiaoy/Documents/mysql-8.0.25-winx64/bin:/mnt/c/WINDOWS:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS/System32:/mnt/c/Users/xiaoy/Documents/apache-ant-1.10.12-bin/apache-ant-1.10.12/bin:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Common Files/Autodesk Shared/:/mnt/c/Program Files/ISC BIND 9/bin:/mnt/c/Python27:/mnt/c/Program Files/nodejs/:/mnt/c/Users/xiaoy/Documents/node.exe:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Calibre2/:/mnt/c/Program Files/TortoiseSVN/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/xiaoy/Documents/MATLAB/R2021b/bin:/mnt/c/HashiCorp/Vagrant/bin:/mnt/c/Program Files (x86)/AOMEI/AOMEI Backupper/6.8.0:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/:/mnt/c/Users/xiaoy/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/repo/mingw64/bin:/mnt/c/Users/xiaoy/.dotnet/tools:/mnt/c/Users/xiaoy/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/xiaoy/go/bin:/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2021.1/bin:/mnt/c/Program Files/JetBrains/PyCharm 2021.1.1/bin:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/xiaoy/AppData/Roaming/npm:/mnt/c/Program Files/JetBrains/WebStorm 2021.1.3/bin:/mnt/c/Program Files/JetBrains/CLion 2021.2/bin:/mnt/c/texlive/2021/bin/win32:/mnt/c/Users/xiaoy/AppData/Local/Programs/Julia-1.7.0/bin:/mnt/c/Program Files/Mercurial:/mnt/c/Users/xiaoy/AppData/Local/GitHubDesktop/bin
+PATH = /home/xiaoy/.vscode-server/bin/dfd34e8260c270da74b5c2d86d61aee4b6d56977/bin/remote-cli:/home/xiaoy/.local/bin:/home/xiaoy/.cargo/bin:$/usr/local/riscv64-unknown-elf-gcc/bin:$/usr/local/riscv64-linux-musl-cross/bin:/usr/local/llvm/bin:/usr/local/riscv64-linux-musl-cross/bin:/usr/local/riscv64-unknown-elf-gcc/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/Program Files/Java/jdk-15.0.1/jre/bin:/mnt/c/Users/xiaoy/Documents/mysql-8.0.25-winx64/bin:/mnt/c/WINDOWS:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS/System32:/mnt/c/Users/xiaoy/Documents/apache-ant-1.10.12-bin/apache-ant-1.10.12/bin:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Common Files/Autodesk Shared/:/mnt/c/Program Files/ISC BIND 9/bin:/mnt/c/Python27:/mnt/c/Program Files/nodejs/:/mnt/c/Users/xiaoy/Documents/node.exe:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Calibre2/:/mnt/c/Program Files/TortoiseSVN/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/xiaoy/Documents/MATLAB/R2021b/bin:/mnt/c/HashiCorp/Vagrant/bin:/mnt/c/Program Files (x86)/AOMEI/AOMEI Backupper/6.8.0:/mnt/c/LINGO64_18/:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python39/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/Scripts/:/mnt/c/Users/xiaoy/AppData/Local/Programs/Python/Python38/:/mnt/c/Users/xiaoy/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Java/jdk-15.0.1/bin:/mnt/c/repo/mingw64/bin:/mnt/c/Users/xiaoy/.dotnet/tools:/mnt/c/Users/xiaoy/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/xiaoy/go/bin:/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2021.1/bin:/mnt/c/Program Files/JetBrains/PyCharm 2021.1.1/bin:/mnt/c/Program Files (x86)/Nmap:/mnt/c/Users/xiaoy/AppData/Roaming/npm:/mnt/c/Program Files/JetBrains/WebStorm 2021.1.3/bin:/mnt/c/Program Files/JetBrains/CLion 2021.2/bin:/mnt/c/texlive/2021/bin/win32:/mnt/c/Users/xiaoy/AppData/Local/Programs/Julia-1.7.0/bin:/mnt/c/Program Files/Mercurial:/mnt/c/Users/xiaoy/AppData/Local/GitHubDesktop/bin:/snap/bin
+ 
 # environment
 SHLVL = 0
 # makefile (from 'Makefile', line 330)
@@ -137,20 +144,19 @@ GRADEFLAGS = -v
 # makefile (from 'Makefile', line 91)
 CC = $(TOOLPREFIX)gcc
 # makefile (from 'Makefile', line 77)
-TOOLPREFIX := riscv64-linux-gnu-
+TOOLPREFIX := riscv64-unknown-elf-
 # default
 MAKE_VERSION := 4.2.1
 # environment
 USER = xiaoy
 # makefile
 .DEFAULT_GOAL := kernel/kernel
- 
 # environment
 NAME = DESKTOP-BTBOTQT
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
-VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/xiaoy/.vscode/extensions/ms-vscode-remote.remote-wsl-0.66.0
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/xiaoy/.vscode/extensions/ms-vscode-remote.remote-wsl-0.66.2
 # default
 MAKE_COMMAND := make
 # default
@@ -161,6 +167,7 @@ MAKE_COMMAND := make
 SERVERPORT = $(shell expr `id -u` % 5000 + 25099)
 # makefile
 MAKEFLAGS = pqrR
+ 
 # environment
 MFLAGS = -pqrR
 # automatic
@@ -193,10 +200,13 @@ LC_ALL = C
 HOSTTYPE = x86_64
 # automatic
 ^F = $(notdir $^)
+ 
 # makefile (from 'Makefile', line 94)
 OBJCOPY = $(TOOLPREFIX)objcopy
+ 
 # default
 SUFFIXES := 
+ 
 # makefile (from 'Makefile', line 256)
 UPROGS = $U/_cat $U/_echo $U/_forktest $U/_grep $U/_init $U/_kill $U/_ln $U/_ls $U/_mkdir $U/_rm $U/_sh $U/_stressfs $U/_usertests $U/_grind $U/_wc $U/_zombie  $U/_nettests
 # default
@@ -208,11 +218,15 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
+LLVM_HOME = /usr/local/llvm/bin
+# environment
 VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 WSL_DISTRO_NAME = Ubuntu-20.04
+# environment
+MOTD_SHOWN = update-motd
 # variable set hash-table stats:
-# Load=95/1024=9%, Rehash=0, Collisions=26/382=7%
+# Load=101/1024=10%, Rehash=0, Collisions=52/440=12%
 
 # Pattern-specific Variable Values
 
@@ -220,11 +234,12 @@ WSL_DISTRO_NAME = Ubuntu-20.04
 
 # Directories
 
-# user (device 2048, inode 193986): 26 files, no impossibilities.
-# kernel (device 2048, inode 173310): 56 files, no impossibilities.
-# . (device 2048, inode 42966): 21 files, no impossibilities.
+ 
+# user (device 2048, inode 449190): 26 files, no impossibilities.
+# kernel (device 2048, inode 193947): 110 files, no impossibilities.
+# . (device 2048, inode 42966): 20 files, no impossibilities.
 
-# 103 files, no impossibilities in 3 directories.
+# 156 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
@@ -243,33 +258,40 @@ _%: %.o user/ulib.o user/usys.o user/printf.o user/umalloc.o
 # Files
 
 # Not a target:
-user/_ln:
+kernel/sysfile.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-# makefile (from 'Makefile', line 135)
-kernel/fs.o: EXTRAFLAG := 
 # Not a target:
-kernel/fs.o:
+user/_ln:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+ 
+#  File has not been updated.
+
+ 
+# makefile (from 'Makefile', line 135)
+ 
+kernel/fs.o: EXTRAFLAG := 
+kernel/fs.o: kernel/fs.c kernel/types.h kernel/riscv.h kernel/defs.h kernel/param.h kernel/stat.h kernel/spinlock.h kernel/proc.h kernel/sleeplock.h kernel/fs.h kernel/buf.h kernel/file.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
 
-handin: tarball-pref myapi.key
-#  Phony target (prerequisite of .PHONY).
+# Not a target:
+kernel/exec.c:
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 350):
-	@SUF=$(LAB); \
-	curl -f -F file=@lab-$$SUF-handin.tar.gz -F key=\<myapi.key $(WEBSUB)/upload \
-	    > /dev/null || { \
-		echo ; \
-		echo Submit seems to have failed.; \
-		echo Please go to $(WEBSUB)/ and upload the tarball manually.; }
+
+# Not a target:
+kernel/vmcopyin.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 qemu: kernel/kernel fs.img
 #  Implicit rule search has not been done.
@@ -278,10 +300,23 @@ qemu: kernel/kernel fs.img
 #  recipe to execute (from 'Makefile', line 305):
 	$(QEMU) $(QEMUOPTS)
 
+# Not a target:
+kernel/virtio_disk.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/kalloc.d:
+#  Implicit rule search has been done.
+ 
+#  Last modified 2022-04-30 08:36:25.409111926
+#  File has been updated.
+#  Successfully updated.
+
 # makefile (from 'Makefile', line 135)
 kernel/exec.o: EXTRAFLAG := 
-# Not a target:
-kernel/exec.o:
+kernel/exec.o: kernel/exec.c kernel/types.h kernel/param.h kernel/memlayout.h kernel/riscv.h kernel/spinlock.h kernel/proc.h kernel/defs.h kernel/elf.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -295,6 +330,25 @@ mkfs/mkfs: mkfs/mkfs.c kernel/fs.h kernel/param.h
 #  recipe to execute (from 'Makefile', line 174):
 	gcc $(XCFLAGS) -Werror -Wall -I. -o mkfs/mkfs mkfs/mkfs.c
 
+# Not a target:
+kernel/printf.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ 
+# Not a target:
+kernel/bio.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/file.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # makefile (from 'Makefile', line 135)
 kernel/e1000.o: EXTRAFLAG := 
 # Not a target:
@@ -305,8 +359,14 @@ kernel/e1000.o:
 # variable set hash-table stats:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
 
+ 
 # Not a target:
 user/_mkdir:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+kernel/stats.o: kernel/stats.c /usr/local/riscv64-unknown-elf-gcc/lib/gcc/riscv64-unknown-elf/10.1.0/include/stdarg.h kernel/types.h kernel/param.h kernel/spinlock.h kernel/sleeplock.h kernel/fs.h kernel/file.h kernel/riscv.h kernel/defs.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -335,6 +395,25 @@ kernel/sysnet.o:
 # variable set hash-table stats:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
 
+# Not a target:
+kernel/spinlock.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/console.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.369111927
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/proc.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 .PHONY: handin tarball tarball-pref clean grade handin-check
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -346,16 +425,14 @@ kernel/kernel.ld:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-kernel/uart.o:
+kernel/uart.o: kernel/uart.c kernel/types.h kernel/param.h kernel/memlayout.h kernel/riscv.h kernel/spinlock.h kernel/proc.h kernel/defs.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # makefile (from 'Makefile', line 135)
 kernel/sleeplock.o: EXTRAFLAG := 
-# Not a target:
-kernel/sleeplock.o:
+kernel/sleeplock.o: kernel/sleeplock.c kernel/types.h kernel/riscv.h kernel/defs.h kernel/param.h kernel/memlayout.h kernel/spinlock.h kernel/proc.h kernel/sleeplock.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -364,8 +441,7 @@ kernel/sleeplock.o:
 
 # makefile (from 'Makefile', line 135)
 kernel/plic.o: EXTRAFLAG := 
-# Not a target:
-kernel/plic.o:
+kernel/plic.o: kernel/plic.c kernel/types.h kernel/param.h kernel/memlayout.h kernel/riscv.h kernel/defs.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -380,8 +456,7 @@ user/_init:
 
 # makefile (from 'Makefile', line 135)
 kernel/log.o: EXTRAFLAG := 
-# Not a target:
-kernel/log.o:
+kernel/log.o: kernel/log.c kernel/types.h kernel/riscv.h kernel/defs.h kernel/param.h kernel/spinlock.h kernel/sleeplock.h kernel/fs.h kernel/buf.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -415,6 +490,11 @@ handin-check:
 		test "$$r" = y; \
 	fi
 
+kernel/sprintf.o: kernel/sprintf.c /usr/local/riscv64-unknown-elf-gcc/lib/gcc/riscv64-unknown-elf/10.1.0/include/stdarg.h kernel/types.h kernel/param.h kernel/spinlock.h kernel/sleeplock.h kernel/fs.h kernel/file.h kernel/riscv.h kernel/defs.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 user/usys.S: user/usys.pl
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -428,6 +508,19 @@ user/usys.S: user/usys.pl
 #  File has not been updated.
 
 # Not a target:
+kernel/bio.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.369111927
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/start.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 README:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -435,14 +528,18 @@ README:
 
 # makefile (from 'Makefile', line 135)
 kernel/syscall.o: EXTRAFLAG := 
-# Not a target:
-kernel/syscall.o:
+kernel/syscall.o: kernel/syscall.c kernel/types.h kernel/param.h kernel/memlayout.h kernel/riscv.h kernel/spinlock.h kernel/proc.h kernel/syscall.h kernel/defs.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 # variable set hash-table stats:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+
+# Not a target:
+kernel/memlayout.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 print-gdbport:
 #  Implicit rule search has not been done.
@@ -451,15 +548,33 @@ print-gdbport:
 #  recipe to execute (from 'Makefile', line 334):
 	@echo $(GDBPORT)
 
+# Not a target:
+kernel/main.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.449111925
+#  File has been updated.
+#  Successfully updated.
+
 # makefile (from 'Makefile', line 135)
 kernel/vm.o: EXTRAFLAG := 
-# Not a target:
-kernel/vm.o:
+kernel/vm.o: kernel/vm.c kernel/param.h kernel/types.h kernel/memlayout.h kernel/elf.h kernel/riscv.h kernel/defs.h kernel/fs.h kernel/spinlock.h kernel/proc.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+
+# Not a target:
+kernel/fcntl.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/console.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # makefile (from 'Makefile', line 135)
 kernel/trampoline.o: EXTRAFLAG := 
@@ -469,6 +584,7 @@ kernel/trampoline.o:
 #  Modification time never checked.
 #  File has not been updated.
 # variable set hash-table stats:
+ 
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
 
 # Not a target:
@@ -482,6 +598,13 @@ user/initcode.S:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+# Not a target:
+kernel/exec.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.379111927
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 _init:
@@ -513,11 +636,30 @@ user/_forktest: user/forktest.o user/ulib.o user/usys.o user/printf.o user/umall
 	$(OBJDUMP) -S $U/_forktest > $U/forktest.asm
 
 # Not a target:
-Makefile:
+kernel/plic.d:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-16 09:14:51.436694821
+#  Last modified 2022-04-30 08:36:25.459111924
 #  File has been updated.
 #  Successfully updated.
+
+# Not a target:
+kernel/stats.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:02.809112631
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/pipe.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # makefile (from 'Makefile', line 135)
 kernel/net.o: EXTRAFLAG := 
@@ -529,12 +671,45 @@ kernel/net.o:
 # variable set hash-table stats:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
 
+# Not a target:
+kernel/file.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.389111927
+#  File has been updated.
+#  Successfully updated.
+
 server:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 319):
 	python3 server.py $(SERVERPORT)
+
+# Not a target:
+kernel/buf.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/spinlock.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.469111924
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/proc.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.459111924
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/main.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 tarball: handin-check
 #  Phony target (prerequisite of .PHONY).
@@ -544,10 +719,16 @@ tarball: handin-check
 #  recipe to execute (from 'Makefile', line 382):
 	git archive --format=tar HEAD | gzip > lab-$(LAB)-handin.tar.gz
 
+# Not a target:
+kernel/string.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.489111923
+#  File has been updated.
+#  Successfully updated.
+
 # makefile (from 'Makefile', line 135)
 kernel/kalloc.o: EXTRAFLAG := 
-# Not a target:
-kernel/kalloc.o:
+kernel/kalloc.o: kernel/kalloc.c kernel/types.h kernel/param.h kernel/memlayout.h kernel/spinlock.h kernel/riscv.h kernel/defs.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -566,10 +747,30 @@ grade:
 	./grade-lab-$(LAB) $(GRADEFLAGS)
 
 # Not a target:
+kernel/fs.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/sysfile.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.499111923
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
 user/_rm:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+# Not a target:
+kernel/vmcopyin.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.519111923
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .gdbinit.tmpl-riscv:
@@ -582,6 +783,20 @@ mkfs/mkfs.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+# Not a target:
+kernel/virtio_disk.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.509111923
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/printf.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.459111924
+#  File has been updated.
+#  Successfully updated.
 
 kernel/kernel: kernel/entry.o kernel/kalloc.o kernel/string.o kernel/main.o kernel/vm.o kernel/proc.o kernel/swtch.o kernel/trampoline.o kernel/trap.o kernel/syscall.o kernel/sysproc.o kernel/bio.o kernel/fs.o kernel/log.o kernel/sleeplock.o kernel/file.o kernel/pipe.o kernel/exec.o kernel/sysfile.o kernel/kernelvec.o kernel/plic.o kernel/virtio_disk.o kernel/e1000.o kernel/net.o kernel/sysnet.o kernel/pci.o kernel/start.o kernel/console.o kernel/printf.o kernel/uart.o kernel/spinlock.o kernel/kernel.ld user/initcode
 #  Implicit rule search has not been done.
@@ -606,8 +821,7 @@ user/_cat:
 
 # makefile (from 'Makefile', line 135)
 kernel/bio.o: EXTRAFLAG := 
-# Not a target:
-kernel/bio.o:
+kernel/bio.o: kernel/bio.c kernel/types.h kernel/param.h kernel/spinlock.h kernel/sleeplock.h kernel/riscv.h kernel/defs.h kernel/fs.h kernel/buf.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -615,7 +829,32 @@ kernel/bio.o:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
 
 # Not a target:
+kernel/trap.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/uart.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 user/_sh:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/trap.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.509111923
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/plic.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -626,6 +865,12 @@ user/_sh:
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 308):
 	sed "s/:1234/:$(GDBPORT)/" < $^ > $@
+
+# Not a target:
+kernel/log.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 user/_kill:
@@ -641,13 +886,18 @@ kernel/fs.h:
 
 # makefile (from 'Makefile', line 135)
 kernel/sysproc.o: EXTRAFLAG := 
-# Not a target:
-kernel/sysproc.o:
+kernel/sysproc.o: kernel/sysproc.c kernel/types.h kernel/riscv.h kernel/defs.h kernel/date.h kernel/param.h kernel/memlayout.h kernel/spinlock.h kernel/proc.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+
+# Not a target:
+kernel/sprintf.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 user/_echo:
@@ -662,6 +912,12 @@ fs.img: mkfs/mkfs README user/_cat user/_echo user/_forktest user/_grep user/_in
 #  recipe to execute (from 'Makefile', line 267):
 	mkfs/mkfs fs.img README $(UEXTRA) $(UPROGS)
 
+# Not a target:
+kernel/syscall.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # makefile (from 'Makefile', line 135)
 kernel/swtch.o: EXTRAFLAG := 
 # Not a target:
@@ -673,6 +929,13 @@ kernel/swtch.o:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
 
 # Not a target:
+kernel/start.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.479111924
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
 user/umalloc.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -681,7 +944,7 @@ user/umalloc.o:
 # Not a target:
 conf/lab.mk:
 #  Implicit rule search has been done.
-#  Last modified 2022-04-16 09:14:51.436694821
+#  Last modified 2022-04-30 08:36:02.809112631
 #  File has been updated.
 #  Successfully updated.
 
@@ -693,8 +956,7 @@ conf/lab.mk:
 
 # makefile (from 'Makefile', line 135)
 kernel/file.o: EXTRAFLAG := 
-# Not a target:
-kernel/file.o:
+kernel/file.o: kernel/file.c kernel/types.h kernel/riscv.h kernel/defs.h kernel/param.h kernel/fs.h kernel/spinlock.h kernel/sleeplock.h kernel/file.h kernel/stat.h kernel/proc.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -702,15 +964,20 @@ kernel/file.o:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
 
 # Not a target:
-kernel/spinlock.o:
+kernel/log.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.449111925
+#  File has been updated.
+#  Successfully updated.
+
+kernel/spinlock.o: kernel/spinlock.c kernel/types.h kernel/param.h kernel/memlayout.h kernel/spinlock.h kernel/riscv.h kernel/proc.h kernel/defs.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # makefile (from 'Makefile', line 135)
 kernel/proc.o: EXTRAFLAG := 
-# Not a target:
-kernel/proc.o:
+kernel/proc.o: kernel/proc.c kernel/types.h kernel/param.h kernel/memlayout.h kernel/riscv.h kernel/spinlock.h kernel/proc.h kernel/defs.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -718,16 +985,27 @@ kernel/proc.o:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
 
 # Not a target:
+kernel/pipe.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.459111924
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/sleeplock.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 kernel/param.h:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # makefile (from 'Makefile', line 135)
 kernel/string.o: EXTRAFLAG := 
-# Not a target:
-kernel/string.o:
+kernel/string.o: kernel/string.c kernel/types.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -744,8 +1022,7 @@ qemu-gdb: kernel/kernel .gdbinit fs.img
 
 # makefile (from 'Makefile', line 135)
 kernel/sysfile.o: EXTRAFLAG := 
-# Not a target:
-kernel/sysfile.o:
+kernel/sysfile.o: kernel/sysfile.c kernel/types.h kernel/riscv.h kernel/defs.h kernel/param.h kernel/stat.h kernel/spinlock.h kernel/proc.h kernel/fs.h kernel/sleeplock.h kernel/file.h kernel/fcntl.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -766,6 +1043,17 @@ clean:
 	$(UPROGS) \
 	ph barrier
 
+kernel/vmcopyin.o: kernel/vmcopyin.c kernel/param.h kernel/types.h kernel/riscv.h kernel/defs.h kernel/spinlock.h kernel/proc.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/stat.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # makefile (from 'Makefile', line 135)
 kernel/kernelvec.o: EXTRAFLAG := 
 # Not a target:
@@ -775,6 +1063,12 @@ kernel/kernelvec.o:
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+
+# Not a target:
+kernel/elf.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 tarball-pref: handin-check
 #  Phony target (prerequisite of .PHONY).
@@ -790,6 +1084,12 @@ tarball-pref: handin-check
 	rm lab-$$SUF-handin.tar; \
 	rm /tmp/lab-$$SUF-diff.patch; \
 
+
+# Not a target:
+kernel/sleeplock.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # makefile (from 'Makefile', line 135)
 kernel/pci.o: EXTRAFLAG := 
@@ -809,8 +1109,7 @@ user/_zombie:
 
 # makefile (from 'Makefile', line 135)
 kernel/virtio_disk.o: EXTRAFLAG := 
-# Not a target:
-kernel/virtio_disk.o:
+kernel/virtio_disk.o: kernel/virtio_disk.c kernel/types.h kernel/riscv.h kernel/defs.h kernel/param.h kernel/memlayout.h kernel/spinlock.h kernel/sleeplock.h kernel/fs.h kernel/buf.h kernel/virtio.h kernel/proc.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -825,7 +1124,19 @@ user/*.d:
 #  Failed to be updated.
 
 # Not a target:
-kernel/printf.o:
+kernel/fs.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.399111926
+#  File has been updated.
+#  Successfully updated.
+
+kernel/printf.o: kernel/printf.c /usr/local/riscv64-unknown-elf-gcc/lib/gcc/riscv64-unknown-elf/10.1.0/include/stdarg.h kernel/types.h kernel/param.h kernel/spinlock.h kernel/sleeplock.h kernel/fs.h kernel/file.h kernel/memlayout.h kernel/riscv.h kernel/defs.h kernel/proc.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/defs.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -838,13 +1149,18 @@ user/_usertests:
 
 # makefile (from 'Makefile', line 135)
 kernel/trap.o: EXTRAFLAG := 
-# Not a target:
-kernel/trap.o:
+kernel/trap.o: kernel/trap.c kernel/types.h kernel/param.h kernel/memlayout.h kernel/riscv.h kernel/spinlock.h kernel/proc.h kernel/defs.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+
+# Not a target:
+kernel/syscall.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 myapi.key:
 #  Implicit rule search has not been done.
@@ -875,17 +1191,56 @@ user/_wc:
 #  File has not been updated.
 
 # Not a target:
-kernel/start.o:
+kernel/stats.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.489111923
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/sysproc.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.499111923
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+/usr/local/riscv64-unknown-elf-gcc/lib/gcc/riscv64-unknown-elf/10.1.0/include/stdarg.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+kernel/start.o: kernel/start.c kernel/types.h kernel/param.h kernel/memlayout.h kernel/riscv.h kernel/defs.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 user/usys.o: user/usys.S
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 165):
 	$(CC) $(CFLAGS) -c -o $U/usys.o $U/usys.S
+
+# Not a target:
+kernel/vm.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/date.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/uart.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.509111923
+#  File has been updated.
+#  Successfully updated.
 
 ping:
 #  Implicit rule search has not been done.
@@ -895,10 +1250,55 @@ ping:
 	python3 ping.py $(FWDPORT)
 
 # Not a target:
+kernel/sleeplock.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.469111924
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
 user/_ls:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+# Not a target:
+kernel/sysproc.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/riscv.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/kalloc.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/sprintf.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.479111924
+#  File has been updated.
+#  Successfully updated.
+
+handin: tarball-pref myapi.key
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 350):
+	@SUF=$(LAB); \
+	curl -f -F file=@lab-$$SUF-handin.tar.gz -F key=\<myapi.key $(WEBSUB)/upload \
+	    > /dev/null || { \
+		echo ; \
+		echo Submit seems to have failed.; \
+		echo Please go to $(WEBSUB)/ and upload the tarball manually.; }
 
 # Not a target:
 user/usys.pl:
@@ -906,14 +1306,26 @@ user/usys.pl:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-kernel/console.o:
+kernel/console.o: kernel/console.c /usr/local/riscv64-unknown-elf-gcc/lib/gcc/riscv64-unknown-elf/10.1.0/include/stdarg.h kernel/types.h kernel/param.h kernel/spinlock.h kernel/sleeplock.h kernel/fs.h kernel/file.h kernel/memlayout.h kernel/riscv.h kernel/defs.h kernel/proc.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
 user/ulib.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/syscall.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.489111923
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+kernel/virtio.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -928,6 +1340,12 @@ user/initcode: user/initcode.S
 	$(OBJCOPY) -S -O binary $U/initcode.out $U/initcode
 	$(OBJDUMP) -S $U/initcode.o > $U/initcode.asm
 
+# Not a target:
+kernel/types.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # makefile (from 'Makefile', line 135)
 kernel/entry.o: EXTRAFLAG := 
 # Not a target:
@@ -938,15 +1356,27 @@ kernel/entry.o:
 # variable set hash-table stats:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
 
+# Not a target:
+kernel/vm.d:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-30 08:36:25.519111923
+#  File has been updated.
+#  Successfully updated.
+
 # makefile (from 'Makefile', line 135)
 kernel/pipe.o: EXTRAFLAG := 
-# Not a target:
-kernel/pipe.o:
+kernel/pipe.o: kernel/pipe.c kernel/types.h kernel/riscv.h kernel/defs.h kernel/param.h kernel/spinlock.h kernel/proc.h kernel/fs.h kernel/sleeplock.h kernel/file.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
+
+# Not a target:
+kernel/file.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 user/_grep:
@@ -961,11 +1391,16 @@ user/_nettests:
 #  File has not been updated.
 
 # Not a target:
-kernel/*.d:
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
+kernel/spinlock.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+kernel/proc.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 user/_grind:
@@ -975,28 +1410,33 @@ user/_grind:
 
 # makefile (from 'Makefile', line 135)
 kernel/main.o: EXTRAFLAG := 
-# Not a target:
-kernel/main.o:
+kernel/main.o: kernel/main.c kernel/types.h kernel/param.h kernel/memlayout.h kernel/riscv.h kernel/defs.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=1/32=3%, Rehash=0, Collisions=0/2=0%
 
+# Not a target:
+kernel/string.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=91/1024=9%, Rehash=0, Collisions=5/240=2%
+# Load=161/1024=16%, Rehash=0, Collisions=42/589=7%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 191 / storage = 1966 B / avg = 10 B
-# current buf: size = 8162 B / used = 1966 B / count = 191 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 313 / storage = 3582 B / avg = 11 B
+# current buf: size = 8162 B / used = 3582 B / count = 313 / avg = 11 B
 
-# strcache performance: lookups = 307 / hit rate = 37%
+# strcache performance: lookups = 693 / hit rate = 54%
 # hash-table stats:
-# Load=191/8192=2%, Rehash=0, Collisions=10/307=3%
-# Finished Make data base on Fri Apr 22 23:05:21 2022
+# Load=313/8192=4%, Rehash=0, Collisions=14/693=2%
+# Finished Make data base on Sat Apr 30 09:07:20 2022
 
  

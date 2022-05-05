@@ -13,7 +13,6 @@ riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -DSOL_NET
  
 riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -DSOL_NET -DLAB_NET -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -DNET_TESTS_PORT=26099 -fno-pie -no-pie  -c -o kernel/proc.o kernel/proc.c
 riscv64-unknown-elf-gcc    -c -o kernel/swtch.o kernel/swtch.S
- 
 riscv64-unknown-elf-gcc    -c -o kernel/trampoline.o kernel/trampoline.S
  
 riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -DSOL_NET -DLAB_NET -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -DNET_TESTS_PORT=26099 -fno-pie -no-pie  -c -o kernel/trap.o kernel/trap.c
@@ -37,6 +36,7 @@ riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -DSOL_NET
 riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -DSOL_NET -DLAB_NET -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -DNET_TESTS_PORT=26099 -fno-pie -no-pie  -c -o kernel/exec.o kernel/exec.c
  
 riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -DSOL_NET -DLAB_NET -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -DNET_TESTS_PORT=26099 -fno-pie -no-pie  -c -o kernel/sysfile.o kernel/sysfile.c
+ 
 riscv64-unknown-elf-gcc    -c -o kernel/kernelvec.o kernel/kernelvec.S
  
 riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -DSOL_NET -DLAB_NET -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -DNET_TESTS_PORT=26099 -fno-pie -no-pie  -c -o kernel/plic.o kernel/plic.c
@@ -46,6 +46,7 @@ riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -DSOL_NET
 make: *** No rule to make target 'kernel/e1000.o', needed by 'kernel/kernel'.
 make: *** No rule to make target 'kernel/net.o', needed by 'kernel/kernel'.
 make: *** No rule to make target 'kernel/sysnet.o', needed by 'kernel/kernel'.
+
 make: *** No rule to make target 'kernel/pci.o', needed by 'kernel/kernel'.
 
 riscv64-unknown-elf-gcc -Wall -Werror -O -fno-omit-frame-pointer -ggdb -DSOL_NET -DLAB_NET -MD -mcmodel=medany -ffreestanding -fno-common -nostdlib -mno-relax -I. -fno-stack-protector -DNET_TESTS_PORT=26099 -fno-pie -no-pie  -c -o kernel/start.o kernel/start.c

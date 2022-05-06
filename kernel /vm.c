@@ -5,14 +5,6 @@
 #include "riscv.h"
 #include "defs.h"
 #include "fs.h"
-#include"spinlock.h"
-#include"proc.h"
-/**
- * 报错信息"field has incomplete type"。
- * 这种问题一般都是在头文件对类或者结构体进行了前向声明，后面使用了该类定义了对象，导致编译报错。
- * 好绝，#include"spinlock.h" #include"proc.h"定义反了会报错的！
- * 
- */
 
 /*
  * the kernel's page table.
@@ -22,74 +14,37 @@ pagetable_t kernel_pagetable;
 extern char etext[];  // kernel.ld sets this to end of kernel code.
 
 extern char trampoline[]; // trampoline.S
-void recursive_print(pagetable_t pagetable,int level);
-void vmprint(pagetable_t pagetable);
+
 /*
  * create a direct-map page table for the kernel.
  */
-
-//应该有一个全局的kernel，然后让每一个kernel page跟它相同
-
-void kvminit(){
-  
-  kernel_pagetable =(pagetable_t) kalloc();
+void
+kvminit()
+{
+  kernel_pagetable = (pagetable_t) kalloc();
   memset(kernel_pagetable, 0, PGSIZE);
 
   // uart registers
-  kvmmap(kernel_pagetable,UART0, UART0, PGSIZE, PTE_R | PTE_W);
+  kvmmap(UART0, UART0, PGSIZE, PTE_R | PTE_W);
 
   // virtio mmio disk interface
-  kvmmap(kernel_pagetable,VIRTIO0, VIRTIO0, PGSIZE, PTE_R | PTE_W);
+  kvmmap(VIRTIO0, VIRTIO0, PGSIZE, PTE_R | PTE_W);
 
   // CLINT
-  kvmmap(kernel_pagetable,CLINT, CLINT, 0x10000, PTE_R | PTE_W);
+  kvmmap(CLINT, CLINT, 0x10000, PTE_R | PTE_W);
 
   // PLIC
-  kvmmap(kernel_pagetable,PLIC, PLIC, 0x400000, PTE_R | PTE_W);
+  kvmmap(PLIC, PLIC, 0x400000, PTE_R | PTE_W);
 
   // map kernel text executable and read-only.
-  kvmmap(kernel_pagetable,KERNBASE, KERNBASE, (uint64)etext-KERNBASE, PTE_R | PTE_X);
+  kvmmap(KERNBASE, KERNBASE, (uint64)etext-KERNBASE, PTE_R | PTE_X);
 
   // map kernel data and the physical RAM we'll make use of.
-  kvmmap(kernel_pagetable,(uint64)etext, (uint64)etext, PHYSTOP-(uint64)etext, PTE_R | PTE_W);
+  kvmmap((uint64)etext, (uint64)etext, PHYSTOP-(uint64)etext, PTE_R | PTE_W);
 
   // map the trampoline for trap entry/exit to
   // the highest virtual address in the kernel.
-  kvmmap(kernel_pagetable,TRAMPOLINE, (uint64)trampoline, PGSIZE, PTE_R | PTE_X);
-}
-
-void
-kvminit_everykernel(struct proc*p)
-{
-  // kernel_pagetable = (pagetable_t) kalloc();
-  printf("p->pid=%d\n",p->pid);
-  pagetable_t page =(pagetable_t) kalloc();
-
-
-  p->kernel_pagetable = page;
-  memset(page, 0, PGSIZE);
-
-  // uart registers
-  kvmmap(page,UART0, UART0, PGSIZE, PTE_R | PTE_W);
-
-  // virtio mmio disk interface
-  kvmmap(page,VIRTIO0, VIRTIO0, PGSIZE, PTE_R | PTE_W);
-
-  // CLINT
-  kvmmap(page,CLINT, CLINT, 0x10000, PTE_R | PTE_W);
-
-  // PLIC
-  kvmmap(page,PLIC, PLIC, 0x400000, PTE_R | PTE_W);
-
-  // map kernel text executable and read-only.
-  kvmmap(page,KERNBASE, KERNBASE, (uint64)etext-KERNBASE, PTE_R | PTE_X);
-
-  // map kernel data and the physical RAM we'll make use of.
-  kvmmap(page,(uint64)etext, (uint64)etext, PHYSTOP-(uint64)etext, PTE_R | PTE_W);
-
-  // map the trampoline for trap entry/exit to
-  // the highest virtual address in the kernel.
-  kvmmap(page,TRAMPOLINE, (uint64)trampoline, PGSIZE, PTE_R | PTE_X);
+  kvmmap(TRAMPOLINE, (uint64)trampoline, PGSIZE, PTE_R | PTE_X);
 }
 
 // Switch h/w page table register to the kernel's page table,
@@ -97,22 +52,7 @@ kvminit_everykernel(struct proc*p)
 void
 kvminithart()
 {
-  // struct proc* p =myproc();
-
-  printf("in kvminithart 1\n");
   w_satp(MAKE_SATP(kernel_pagetable));
-
-  printf("in kvminithart 2\n");
-  sfence_vma();
-  printf("in kvminithart 3\n");
-}
-
-void
-kvminithart_everykernel()
-{
-  struct proc* p =myproc();
-
-  w_satp(MAKE_SATP(p->kernel_pagetable));
   sfence_vma();
 }
 
@@ -175,9 +115,9 @@ walkaddr(pagetable_t pagetable, uint64 va)
 // only used when booting.
 // does not flush TLB or enable paging.
 void
-kvmmap(pagetable_t pagetable,uint64 va, uint64 pa, uint64 sz, int perm)
+kvmmap(uint64 va, uint64 pa, uint64 sz, int perm)
 {
-  if(mappages(pagetable, va, sz, pa, perm) != 0)
+  if(mappages(kernel_pagetable, va, sz, pa, perm) != 0)
     panic("kvmmap");
 }
 
@@ -186,13 +126,13 @@ kvmmap(pagetable_t pagetable,uint64 va, uint64 pa, uint64 sz, int perm)
 // addresses on the stack.
 // assumes va is page aligned.
 uint64
-kvmpa(pagetable_t pagetable,uint64 va)
+kvmpa(uint64 va)
 {
   uint64 off = va % PGSIZE;
   pte_t *pte;
   uint64 pa;
   
-  pte = walk(pagetable, va, 0);
+  pte = walk(kernel_pagetable, va, 0);
   if(pte == 0)
     panic("kvmpa");
   if((*pte & PTE_V) == 0)
@@ -500,69 +440,3 @@ copyinstr(pagetable_t pagetable, char *dst, uint64 srcva, uint64 max)
     return -1;
   }
 }
-
-
-
-//你知道结果，但是你怕痛。
-//但是推迟失败就能避免失败吗？并经历这种戒断就能变得真正强大吗？
-void vmprint(pagetable_t pagetable){
-  // for(int i=0;i<512;i++){
-  //    pte_t pte=pagetable[i];
-  //   if(pte&PTE_V){
-  //     printf("i=%d\n",i);
-  //   }
-  // }
-  printf("page table %p\n",pagetable);
-  recursive_print(pagetable,0);
-}
-
-//打..的过程也要递归，以前有点点，下一次也要补上
-void recursive_print(pagetable_t pagetable,int level){
-  for(int i=0;i<512;i++){
-    if(i==255){
-      // printf("level=%d\n",level);
-    }
-    pte_t pte=pagetable[i];
-    if(pte&PTE_V){
-      for(int i=0;i<level;i++){
-        printf(".. ");
-      }
-       printf("..%d: pte %p pa %p\n",i,pte,(uint64)PTE2PA(pte));
-      if((pte&(PTE_R|PTE_W|PTE_X))==0){
-      level++;
-      uint64 child = PTE2PA(pte);
-      recursive_print((pagetable_t)child,level);
-      level--;
-      // pagetable[i]=0;
-    }
-
-    }
-   
-  }
-}
-
-
-
-/**
-
- // Recursively free page-table pages.
-// All leaf mappings must already have been removed.
-void
-freewalk(pagetable_t pagetable)
-{
-  // there are 2^9 = 512 PTEs in a page table.
-  for(int i = 0; i < 512; i++){
-    pte_t pte = pagetable[i];
-    if((pte & PTE_V) && (pte & (PTE_R|PTE_W|PTE_X)) == 0){
-      // this PTE points to a lower-level page table.
-      uint64 child = PTE2PA(pte);
-      freewalk((pagetable_t)child);
-      pagetable[i] = 0;//我靠，这一步是干嘛的？
-    } else if(pte & PTE_V){
-      panic("freewalk: leaf");
-    }
-  }
-  kfree((void*)pagetable);
-}
- 
- */

@@ -18,8 +18,6 @@ struct spinlock pid_lock;
 extern void forkret(void);
 static void wakeup1(struct proc *chan);
 static void freeproc(struct proc *p);
-void  proc_free_kernel(pagetable_t pagetable);
-
 
 extern char trampoline[]; // trampoline.S
 
@@ -31,26 +29,19 @@ procinit(void)
   
   initlock(&pid_lock, "nextpid");
   for(p = proc; p < &proc[NPROC]; p++) {
-      printf("just procinit\n");
-      // printf("pid = %d\n",p->pid);
       initlock(&p->lock, "proc");
 
       // Allocate a page for the process's kernel stack.
       // Map it high in memory, followed by an invalid
       // guard page.
-      // char *pa = kalloc();
-      // if(pa == 0)
-      //   panic("kalloc");
-      // uint64 va = KSTACK((int) (p - proc));
-
-      // printf("va=%p\n",va);
-
-      //就是我怎么确保每一个kernel page都跟最开始的那个相同？
-      // kvmmap(p->kernel_pagetable,va, (uint64)pa, PGSIZE, PTE_R | PTE_W);
-      // p->kstack = va;
+      char *pa = kalloc();
+      if(pa == 0)
+        panic("kalloc");
+      uint64 va = KSTACK((int) (p - proc));
+      kvmmap(va, (uint64)pa, PGSIZE, PTE_R | PTE_W);
+      p->kstack = va;
   }
   kvminithart();
-  // kvminithart_everykernel();
 }
 
 // Must be called with interrupts disabled,
@@ -98,18 +89,14 @@ allocpid() {
 // If found, initialize state required to run in the kernel,
 // and return with p->lock held.
 // If there are no free procs, or a memory allocation fails, return 0.
-
-//这跟scheduler的区别就是这是第一次分配？
 static struct proc*
 allocproc(void)
 {
-  printf("enter allocproc\n");
   struct proc *p;
 
   for(p = proc; p < &proc[NPROC]; p++) {
     acquire(&p->lock);
     if(p->state == UNUSED) {
-   
       goto found;
     } else {
       release(&p->lock);
@@ -120,7 +107,6 @@ allocproc(void)
 found:
   p->pid = allocpid();
 
-  printf("in allocproc pid=%d\n",p->pid);
   // Allocate a trapframe page.
   if((p->trapframe = (struct trapframe *)kalloc()) == 0){
     release(&p->lock);
@@ -141,20 +127,6 @@ found:
   p->context.ra = (uint64)forkret;
   p->context.sp = p->kstack + PGSIZE;
 
-
-  kvminit_everykernel(p);
-
-  
-  char *pa = kalloc();
-  if(pa == 0)
-      panic("kalloc");
-  uint64 va = KSTACK((int) 0);//直接写死，逻辑地址和物理地址的映射关系
-  kvmmap(p->kernel_pagetable,va, (uint64)pa, PGSIZE, PTE_R | PTE_W);
-  p->kstack = va;
-  // w_satp(MAKE_SATP(p->kernel_pagetable));
-  // sfence_vma();
-
-  printf("allocproc is ok\n");
   return p;
 }
 
@@ -167,10 +139,8 @@ freeproc(struct proc *p)
   if(p->trapframe)
     kfree((void*)p->trapframe);
   p->trapframe = 0;
-  if(p->pagetable){
-     proc_freepagetable(p->pagetable, p->sz);
-  }
-   
+  if(p->pagetable)
+    proc_freepagetable(p->pagetable, p->sz);
   p->pagetable = 0;
   p->sz = 0;
   p->pid = 0;
@@ -180,14 +150,7 @@ freeproc(struct proc *p)
   p->killed = 0;
   p->xstate = 0;
   p->state = UNUSED;
-
-  p->kstack=0;
-  void*kpgtbl=(void*)kvmpa(p->kernel_pagetable,p->kstack);
-  kfree(kpgtbl);
-  proc_free_kernel(p->kernel_pagetable);
 }
-
-
 
 // Create a user page table for a given process,
 // with no user memory, but with trampoline pages.
@@ -230,24 +193,6 @@ proc_freepagetable(pagetable_t pagetable, uint64 sz)
   uvmunmap(pagetable, TRAMPOLINE, 1, 0);
   uvmunmap(pagetable, TRAPFRAME, 1, 0);
   uvmfree(pagetable, sz);
-}
-
-//这个free是要怎么free?
-void 
-proc_free_kernel(pagetable_t pagetable){
-  // there are 2^9 = 512 PTEs in a page table.
-  for(int i = 0; i < 512; i++){
-    pte_t pte = pagetable[i];
-    if((pte & PTE_V) && (pte & (PTE_R|PTE_W|PTE_X)) == 0){
-      // this PTE points to a lower-level page table.
-      uint64 child = PTE2PA(pte);
-      proc_free_kernel((pagetable_t)child);
-      pagetable[i] = 0;
-    } else if(pte & PTE_V){
-      kfree((void*)pagetable);
-    }
-  }
-  kfree((void*)pagetable);
 }
 
 // a user program that calls exec("/init")
@@ -512,7 +457,7 @@ void
 scheduler(void)
 {
   struct proc *p;
-  struct cpu *  c = mycpu();
+  struct cpu *c = mycpu();
   
   c->proc = 0;
   for(;;){
@@ -523,18 +468,11 @@ scheduler(void)
     for(p = proc; p < &proc[NPROC]; p++) {
       acquire(&p->lock);
       if(p->state == RUNNABLE) {
-
-        printf("in scheduler pid=%d\n",p->pid);
         // Switch to chosen process.  It is the process's job
         // to release its lock and then reacquire it
         // before jumping back to us.
         p->state = RUNNING;
         c->proc = p;
-
-        printf("enter scheduler11111\n");
-        w_satp(MAKE_SATP(p->kernel_pagetable));
-        sfence_vma();
-        printf("enter scheduler22222\n");
         swtch(&c->context, &p->context);
 
         // Process is done running for now.
@@ -542,7 +480,6 @@ scheduler(void)
         c->proc = 0;
 
         found = 1;
-  
       }
       release(&p->lock);
     }
